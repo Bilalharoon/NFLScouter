@@ -73,6 +73,9 @@ def main(argv: list[str] | None = None) -> None:
         output_path=args.output,
     )
 
+    css_df.to_csv('outputs/css_df.csv')
+    print('DF saved to CSV')
+
     # Pretty-print ranked results
     display = css_df.reset_index()[["rank"] + DISPLAY_COLS].copy()
     display["CSS_Score"] = display["CSS_Score"].round(4)
