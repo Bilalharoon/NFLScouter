@@ -136,7 +136,8 @@ def plot_css_clustered():
     for cluster in unique_clusters:
         cluster_data = df[df['cluster'] == cluster]
         plt.scatter(cluster_data['success_rate'], cluster_data['explosiveness'], 
-                    label=f'Cluster {cluster}', alpha=0.7, s=50, 
+                    label=f'Cluster {cluster}', alpha=0.7, 
+                    s= cluster_data['CSS_Score'] * _SIZE_SCALE, 
                     color=cluster_color_map[cluster])
 
     plt.title('Rookie Clusters: Success Rate vs Explosiveness')
